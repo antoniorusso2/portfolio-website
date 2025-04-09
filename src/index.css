@@ -35,6 +35,11 @@
   --base-padding: 0.8rem;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 /* react root */
 #root {
   height: 100vh;
@@ -46,8 +51,22 @@
 
 /* global styles */
 a {
+  display: block;
   text-decoration: none;
   color: currentColor;
+}
+
+ol,
+ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+ul > li,
+ol > li {
+  flex-basis: 100%;
 }
 
 .active {
@@ -87,10 +106,12 @@ main {
   flex-grow: 1;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+header {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.1);
 }
 
 .container {
@@ -103,6 +124,23 @@ main {
 nav {
   display: flex;
   padding: var(--base-padding) 0;
+}
+
+/* footer */
+footer .row {
+  justify-content: space-between;
+}
+
+.social-list {
+  flex-wrap: nowrap;
+  align-items: flex-end;
+}
+
+.social-list a {
+  padding: 0 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* navlink animation */

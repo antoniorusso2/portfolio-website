@@ -7,10 +7,10 @@ export default function Header() {
       <nav className="navbar">
         <div className={`container ${style.container}`}>
           <ul className={style.nav_link_list}>
-            <NavLink className={style.nav_link} to="/home">
+            <NavLink className={style.nav_link} to="/">
               Home
             </NavLink>
-            <NavLink className={style.nav_link} to="/projects">
+            <NavLink className={style.nav_link} to="projects">
               Projects
             </NavLink>
           </ul>

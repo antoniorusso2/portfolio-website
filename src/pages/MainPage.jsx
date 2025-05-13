@@ -1,6 +1,6 @@
 export default function MainPAge() {
   return (
-    <div className="container">
+    <div className="container mx-auto">
       <div className="row">
         {/* hero section */}
         <section className="hero-section">

@@ -1,9 +1,9 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import DefaultLayout from './layout/defaultLayout';
-import NotFound from './layout/NotFound/NotFound';
-import MainPAge from './pages/MainPage';
-import About from './pages/About';
-import Projects from './pages/Projects';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DefaultLayout from "./layout/DefaultLayout";
+import NotFound from "./layout/NotFound/NotFound";
+import MainPAge from "./pages/MainPage";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
 
 function App() {
   return (

@@ -1,3 +1,5 @@
+import ScrollVelocity from "../components/Carousel/Carousel";
+
 export default function MainPAge() {
   return (
     <div className="container mx-auto">
@@ -9,11 +11,10 @@ export default function MainPAge() {
             <p className="hero-subtitle">Junior Web Developer</p>
           </div>
         </section>
-        <section className="description-section">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, natus? Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Quos, natus?
-          </p>
+        <section className="tech-stack">
+          <div className="container">
+            <ScrollVelocity velocity={5} texts={["HTML", "CSS", "JavaScript", "React", "Tailwind"]} />
+          </div>
         </section>
       </div>
     </div>

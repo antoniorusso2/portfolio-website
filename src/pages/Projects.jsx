@@ -23,11 +23,9 @@ export default function Projects() {
   }, []);
 
   return (
-    <div className="container">
-      <div className="row">
-        {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
+    <div className="container mx-auto">
+      <div className="row flex justify-content-around">
+        {projects && projects.map((project) => <ProjectCard key={project.id} project={project} />)}
       </div>
     </div>
   );

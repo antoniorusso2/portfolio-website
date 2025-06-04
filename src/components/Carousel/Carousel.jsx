@@ -1,45 +1,47 @@
-import style from './Carousel.module.css';
+import { useState } from "react";
+// import { motion, AnimatePresence } from "framer-motion";
 
-export default function Slider() {
-  const items = [
-    {
-      id: 1,
-      name: 'item 1',
-      text: 'item1',
-    },
-    {
-      id: 2,
-      name: 'item 2',
-      text: 'item2',
-    },
-    {
-      id: 3,
-      name: 'item 3',
-      text: 'item3',
-    },
-    {
-      id: 4,
-      name: 'item 4',
-      text: 'item4',
-    },
-  ];
+export default function Carousel({ images = [] }) {
+  const imgUrl = "http://127.0.0.1:8000/storage/";
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1 === images.length ? 0 : prevIndex + 1));
+  };
+
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 < 0 ? images.length - 1 : prevIndex - 1));
+  };
+
+  // const handleDotClick = (index) => {
+  //   setCurrentIndex(index);
+  // };
 
   return (
-    <div className="container">
-      <div className={`${style.carousel_container}`}>
-        <div className={style.carousel_row}>
-          {items.map((item) => (
-            <div className="col-3" key={item.id}>
-              <div id={item.id} className="card">
-                <div className="card-body">
-                  <h5 className="card-title">{item.name}</h5>
-                  <p className="card-text">{item.text}</p>
-                </div>
-              </div>
-            </div>
-          ))}
+    <div className="carousel">
+      <img key={currentIndex} src={imgUrl + images[currentIndex].url} />
+      <div className="slide_direction relative">
+        <div className="left" onClick={handlePrevious}>
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20">
+            <path d="M400 976 0 576l400-400 56 57-343 343 343 343-56 57Z" />
+          </svg>
+        </div>
+        <div className="right absolute right-0 top-0" onClick={handleNext}>
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20">
+            <path d="m304 974-56-57 343-343-343-343 56-57 400 400-400 400Z" />
+          </svg>
         </div>
       </div>
+      {/* <div className="indicator">
+        {images.map((_, index) => (
+          <div
+            key={index}
+            className={`dot ${currentIndex === index ? "active" : ""}`}
+            onClick={() => handleDotClick(index)}
+          ></div>
+        ))}
+      </div> */}
     </div>
   );
 }

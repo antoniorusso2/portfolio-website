@@ -1,4 +1,4 @@
-import ScrollVelocity from "../components/Carousel/Carousel";
+import TechCarousel from "../components/Carousel/Technologies/TechCarousel";
 
 export default function MainPAge() {
   return (
@@ -11,9 +11,10 @@ export default function MainPAge() {
             <p className="hero-subtitle">Junior Web Developer</p>
           </div>
         </section>
+
         <section className="tech-stack">
           <div className="container">
-            <ScrollVelocity velocity={5} texts={["HTML", "CSS", "JavaScript", "React", "Tailwind"]} />
+            <TechCarousel />
           </div>
         </section>
       </div>

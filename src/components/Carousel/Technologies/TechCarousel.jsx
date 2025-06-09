@@ -20,7 +20,7 @@ export default function AutoplayCarousel() {
     fetchTechnologies();
   }, []);
   return (
-    <div className="carousel_wrapper overflow-hidden w-full bg-gradient-to-r from-cyan-950 via-cyan-800 to-cyan-700">
+    <div className=" carousel_wrapper overflow-hidden w-full bg-[var(--secondary-color)] rounded-sm shadow-[var(--bg-color)] border-double border-4 border-[var(--red-4)]">
       <div className="carousel">
         {/* Duplicate for seamless looping */}
         {[...technologies, ...technologies].map((technology, idx) => (

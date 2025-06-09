@@ -1,21 +1,21 @@
 /* tech and sliders font */
-@import url("https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Jersey+10&display=swap");
-
+/* @import url("https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Jersey+10&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap");
 @import "tailwindcss";
 
 :root {
-  line-height: 1.5;
-  font-family: "Jersey 10", serif;
-  font-weight: 400;
-  font-style: normal;
-  letter-spacing: var(--letter-spacing);
-  font-optical-sizing: auto;
+  /* letter-spacing: var(--letter-spacing);
+  font-optical-sizing: auto; */
 
-  --bg-color: #23486a;
-  --secondary-color: #4c7b8b;
-  --primary-color: #3b6790;
-  --accent-color: #efb036;
-  --text-color: #fbffe4;
+  --bg-color: #070020;
+  --primary-color: #7c1327;
+  --secondary-color: #22032a;
+  --red-3: #36052b;
+  --red-4: #580d27;
+  --slated-primary: #e48585;
+  --slated-secondary: #f0b8b8;
+  --accent-color: #c71f22;
+  --text-color: #fbdfd0;
   --letter-spacing: 0.3rem;
   --base-padding: 0.8rem;
 }
@@ -27,46 +27,24 @@
   flex-direction: column;
 }
 .container {
-  @apply mx-auto;
+  @apply mx-auto px-6;
+  max-width: 1200px;
 }
 
-.active {
-  opacity: 1 !important;
-  color: var(--accent-color);
-  position: relative;
-}
-
-.active::after {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  border-radius: 0.5rem;
-  background-color: var(--accent-color);
-  animation: navLinkExtend 0.5s ease-in-out;
-  animation-fill-mode: forwards;
+h1,
+h2,
+h3,
+nav {
+  font-family: "Press Start 2P", monospace;
 }
 
 body {
-  background-image: linear-gradient(180deg, #23486a 0%, #3b6790 100%);
+  background-image: linear-gradient(180deg, var(--secondary-color) 30%, var(--primary-color) 100%);
+  font-family: "Share Tech Mono", monospace;
+  /* font-size: 1.2rem; */
 
   background-position: center;
   background-attachment: fixed;
 
   color: var(--text-color);
-}
-
-/* navlink animation */
-@keyframes navLinkExtend {
-  0% {
-    width: 0;
-  }
-  50% {
-    width: 85%;
-  }
-  100% {
-    width: 70%;
-  }
 }

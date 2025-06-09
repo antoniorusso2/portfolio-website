@@ -1,0 +1,45 @@
+/* @import "tailwindcss"; */
+
+.nav_link {
+  padding-left: 2.25rem;
+  display: flex !important;
+  align-items: center;
+  font-size: 1.185rem;
+  filter: opacity(0.5);
+  text-align: left;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.active {
+  opacity: 1 !important;
+  color: var(--accent-color);
+  filter: opacity(1);
+}
+
+.nav_link:hover {
+  color: var(--accent-color) !important;
+  filter: opacity(1);
+}
+
+.active::before {
+  content: "";
+
+  background-image: url("../../assets/play-bi.png");
+  background-clip: content-box;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  width: 20px;
+  height: 20px;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  /* border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 20px solid var(--accent-color); */
+  /* image-rendering: pixelated; */
+  pointer-events: none;
+}

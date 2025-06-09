@@ -4,8 +4,8 @@ import style from "./Header.module.css";
 export default function Header() {
   return (
     <header className="header">
-      <nav className="navbar">
-        <div className="container mx-auto">
+      <div className="container">
+        <nav className="navbar w-full flex justify-between items-center uppercase">
           <ul className={style.nav_link_list}>
             <NavLink className={style.nav_link} to="/">
               Home
@@ -14,8 +14,8 @@ export default function Header() {
               Projects
             </NavLink>
           </ul>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </header>
   );
 }

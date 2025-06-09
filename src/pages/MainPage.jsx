@@ -5,13 +5,12 @@ export default function MainPAge() {
     <div className="container mx-auto">
       <div className="row">
         {/* hero section */}
-        <section className="hero-section">
-          <div className="hero">
-            <h1 className="hero-title">Antonio Russo</h1>
-            <p className="hero-subtitle">Junior Web Developer</p>
+        <section className="main_content">
+          <div className="name_description border-1 border-cyan-800 rounded-sm p-3 ">
+            <h1 className="name">Antonio Russo</h1>
+            <p className="description">Junior Web Developer</p>
           </div>
         </section>
-
         <section className="tech-stack">
           <div className="container">
             <TechCarousel />

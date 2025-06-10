@@ -10,14 +10,12 @@
   --bg-color: #070020;
   --primary-color: #7c1327;
   --secondary-color: #22032a;
-  --red-3: #36052b;
-  --red-4: #580d27;
+  --darker: #36052b;
+  --red-dark: #580d27;
   --slated-primary: #e48585;
   --slated-secondary: #f0b8b8;
   --accent-color: #c71f22;
   --text-color: #fbdfd0;
-  --letter-spacing: 0.3rem;
-  --base-padding: 0.8rem;
 }
 
 /* react root */

@@ -1,18 +1,13 @@
-// import placeholder from "/placeholder.png";
-
-const imgUrl = "http://127.0.0.1:8000/storage/";
-
 /* eslint-disable react/prop-types */
 export default function ProjectCard({ project }) {
-  // console.log(project);
+  // console.log("render card");
 
   return (
     <div className="project-card border-2 rounded-sm border-cyan-800 p-4">
       <div className="card__header">
-        {/* <Carousel images={project.media} /> */}
         <img
           className="object-cover object-center max-w-full"
-          src={imgUrl + project.media}
+          src={"placeholder-600-400.png"}
           onError={(e) => (e.target.src = "placeholder-600-400.png")}
           alt={project.name}
         />

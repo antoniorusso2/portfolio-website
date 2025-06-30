@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import { useState } from "react";
 import Loader from "./components/ui/Loader";
+import ProjectDetail from "./pages/ProjectDetail";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -20,6 +21,7 @@ function App() {
             <Route index path="/" element={<MainPAge />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:slug" element={<ProjectDetail />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

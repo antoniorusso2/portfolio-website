@@ -1,3 +1,5 @@
+import TechBadge from "../ui/TechBadge";
+
 /* eslint-disable react/prop-types */
 export default function ProjectCard({ project }) {
   // console.log("render card");
@@ -12,17 +14,15 @@ export default function ProjectCard({ project }) {
           alt={project.name}
         />
       </div>
-      <h2 className="project__name text-emerald-500 text-xl">{project.name}</h2>
+      {/* <h2 className="project__name text-emerald-500 text-xl">{project.name}</h2> */}
+
+      <a className="project__link text-emerald-500" href={`/projects/${project.slug}`}>
+        {project.name}
+      </a>
 
       <div className="tech-badges flex gap-1 flex-wrap">
         {project.technologies.map((technology) => (
-          <span
-            className="badge text-sm py-0.5 px-1 rounded-xs"
-            style={{ backgroundColor: technology.color }}
-            key={technology.id}
-          >
-            {technology.name}
-          </span>
+          <TechBadge key={technology.id} technology={technology} />
         ))}
       </div>
     </div>

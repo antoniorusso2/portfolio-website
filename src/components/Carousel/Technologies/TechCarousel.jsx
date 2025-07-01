@@ -8,27 +8,40 @@ export default function AutoplayCarousel() {
 
   async function fetchTechnologies() {
     try {
-      const response = await axios.get("http://127.0.0.1:8000/api/technologies");
+      const response = await axios.get(import.meta.env.VITE_API_BASE_URL + "technologies", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       // console.log(response.data.results);
       setTechnologies(response.data.results);
     } catch (error) {
       console.error(error);
+      setTechnologies([]);
+      // console.error(error);
     }
   }
 
   useEffect(() => {
     fetchTechnologies();
   }, []);
+
   return (
-    <div className="carousel_wrapper overflow-hidden w-full bg-[var(--secondary-color)] rounded-lg border-double border-8 border-[var(--red-dark)]">
-      <div className="carousel">
-        {/* Duplicate for seamless looping */}
-        {[...technologies, ...technologies].map((technology, idx) => (
-          <div key={idx} className="carousel-item">
-            <img src={technology.icon_url} alt="tech-icon" />
-          </div>
-        ))}
+    technologies?.length > 0 && (
+      <div className="carousel_wrapper overflow-hidden w-full bg-[var(--secondary-color)] rounded-lg border-double border-8 border-[var(--red-dark)]">
+        <div className="carousel">
+          {[...technologies, ...technologies].map((technology, idx) => (
+            <div key={idx} className="carousel-item">
+              <img src={technology.icon_url} alt="tech-icon" />
+            </div>
+          ))}
+          {[...technologies, ...technologies].map((technology, idx) => (
+            <div key={idx} className="carousel-item">
+              <img src={technology.icon_url} alt="tech-icon" />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    )
   );
 }

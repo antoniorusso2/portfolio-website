@@ -1,5 +1,4 @@
 /* tech and sliders font */
-/* @import url("https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Jersey+10&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap");
 @import "tailwindcss";
 
@@ -25,8 +24,7 @@
   flex-direction: column;
 }
 .container {
-  @apply mx-auto px-6;
-  max-width: 1200px;
+  @apply mx-auto px-6 min-w-xs;
 }
 
 h1,

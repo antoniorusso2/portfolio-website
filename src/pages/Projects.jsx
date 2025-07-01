@@ -3,7 +3,7 @@ import ProjectCard from "../components/Cards/ProjectCard";
 import axios from "axios";
 import LoaderContext from "../contexts/LoaderContext";
 
-const apiUrl = "http://127.0.0.1:8000/api/projects";
+const apiUrl = import.meta.env.VITE_API_BASE_URL + "projects";
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
@@ -23,7 +23,6 @@ export default function Projects() {
     try {
       setIsLoading(true);
       await axios.get(apiUrl + "?limit=" + limit + "&page=" + currentPage).then((res) => {
-        console.log(res.data.results);
         setProjects(res.data.results.data || []);
         setCurrentPage(res.data.results.current_page);
         const last_page = res.data.results.last_page;
@@ -37,16 +36,16 @@ export default function Projects() {
 
   useEffect(() => {
     getProjects();
-  }, []);
+  }, [currentPage]);
 
   return (
     <>
-      <div className="container min-h-screen pt-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-content-around gap-3">
+      <div className="container flex flex-col justify-content-between h-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-content-around gap-3">
           {projects && projects.map((project) => <ProjectCard key={project.id} project={project} />)}
         </div>
 
-        <div className="pagination flex justify-center mt-4">
+        <div className="pagination flex justify-center mt-auto">
           {pages &&
             pages.map((page) => (
               <button

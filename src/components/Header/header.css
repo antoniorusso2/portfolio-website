@@ -1,60 +1,64 @@
 /* @import "tailwindcss"; */
 
 .navbar {
-  background-color: var(--bg-color) 0.5;
-  backdrop-filter: blur(10px);
+    background-color: var(--color-bg-dark) 0.5;
+    backdrop-filter: blur(10px);
 }
 
 .logo {
-  background-image: linear-gradient(to top, var(--primary-color) 30%, var(--accent-color) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 400;
+    background-image: linear-gradient(
+        to top,
+        var(--primary-color) 30%,
+        var(--accent-color) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 400;
 }
 
 .nav_link {
-  padding-left: 1.6rem;
-  display: flex !important;
-  align-items: center;
-  font-size: 1.185rem;
-  filter: opacity(0.5);
-  text-align: left;
-  position: relative;
-  transition: all 0.3s ease-in-out;
+    padding-left: 1.6rem;
+    display: flex !important;
+    align-items: center;
+    font-size: 1.185rem;
+    filter: opacity(0.5);
+    text-align: left;
+    position: relative;
+    transition: all 0.3s ease-in-out;
 }
 
 .active {
-  opacity: 1 !important;
-  color: var(--accent-color);
-  filter: opacity(1);
+    opacity: 1 !important;
+    color: var(--color-accent-green) !important;
+    filter: opacity(1);
 }
 
 .nav_link:hover {
-  color: var(--accent-color) !important;
-  filter: opacity(1);
+    color: var(--color-accent-green);
+    filter: opacity(1);
 }
 
 .active::before {
-  content: "";
+    content: "";
 
-  background-image: url("../../assets/22-22-play-retro.png");
-  filter: drop-shadow(0 0 2px var(--accent-color));
+    background-image: url("../../assets/22-22-play-retro.png");
+    filter: drop-shadow(-3px 0 6px var(--color-accent-green));
 
-  background-clip: content-box;
-  background-size: contain;
-  background-repeat: no-repeat;
+    background-clip: content-box;
+    background-size: contain;
+    background-repeat: no-repeat;
 
-  width: 1.225rem;
-  height: 23px;
+    width: 1.225rem;
+    height: 23px;
 
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  /* border-top: 10px solid transparent;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    /* border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-left: 20px solid var(--accent-color); */
-  /* image-rendering: pixelated; */
-  pointer-events: none;
+    /* image-rendering: pixelated; */
+    pointer-events: none;
 }

@@ -5,24 +5,12 @@
     backdrop-filter: blur(10px);
 }
 
-.logo {
-    background-image: linear-gradient(
-        to top,
-        var(--primary-color) 30%,
-        var(--accent-color) 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 400;
-}
-
 .nav_link {
     padding-left: 1.6rem;
     display: flex !important;
     align-items: center;
-    font-size: 1.185rem;
-    filter: opacity(0.5);
+    filter: opacity(0.6);
+    color: var(--color-text-primary);
     text-align: left;
     position: relative;
     transition: all 0.3s ease-in-out;
@@ -30,12 +18,12 @@
 
 .active {
     opacity: 1 !important;
-    color: var(--color-accent-green) !important;
+    color: var(--color-accent-violet) !important;
     filter: opacity(1);
 }
 
 .nav_link:hover {
-    color: var(--color-accent-green);
+    color: var(--color-accent-blue);
     filter: opacity(1);
 }
 
@@ -43,7 +31,7 @@
     content: "";
 
     background-image: url("../../assets/22-22-play-retro.png");
-    filter: drop-shadow(-3px 0 6px var(--color-accent-green));
+    filter: drop-shadow(1px 1px 1px var(--color-glow));
 
     background-clip: content-box;
     background-size: contain;
@@ -56,9 +44,5 @@
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    /* border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 20px solid var(--accent-color); */
-    /* image-rendering: pixelated; */
     pointer-events: none;
 }

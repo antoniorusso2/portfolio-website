@@ -6,25 +6,16 @@
     /* letter-spacing: var(--letter-spacing);
   font-optical-sizing: auto; */
 
-    --color-bg-dark: #131a26;
-    --color-bg-medium: #1a2937;
-    --color-accent-blue: #09fcdc;
-    --color-accent-green: #3ddc97;
-    --color-accent-neon: #56fff8; /* optional for glow effects */
-    --color-text-primary: #e0f6ff;
-    --color-text-secondary: #a0c4db;
-    --color-nav-bg: rgba(19, 26, 38, 0.95);
-    --color-glow: #0ff; /* neon glow for effects */
-
-    --bg-color: #131a26;
-    --primary-color: #09fcdc;
-    --secondary-color: #1a2937;
-    --darker: rgba(19, 26, 38, 0.95);
-    --red-dark: #3ddc97;
-    --slated-primary: #e48585;
-    --slated-secondary: #a0c4db;
-    --accent-color: #56fff8;
-    --text-color: #e0f6ff;
+    --color-bg-dark: #0e0f1a;
+    --color-bg-medium: #1d2033;
+    --color-accent-magenta: #f72585;
+    --color-accent-blue: #4895ef;
+    --color-accent-violet: #7209b7;
+    --color-text-primary: #f1f1f1;
+    --color-text-secondary: #b8b8d0;
+    --color-nav-bg: rgba(14, 15, 26, 0.85);
+    --color-glow: #f72585;
+    --card-shadow: 0 0 0.5rem 1px var(--color-accent-blue);
 }
 
 /* react root */
@@ -33,6 +24,7 @@
     display: flex;
     flex-direction: column;
 }
+
 .container {
     @apply mx-auto px-6 min-w-xs;
 }
@@ -44,17 +36,24 @@ nav {
     font-family: "Press Start 2P", monospace;
 }
 
+main {
+    padding: 1.2rem 0;
+}
+
 body {
-    background-image: linear-gradient(
-        180deg,
-        var(--bg-color) 70%,
-        var(--darker) 100%
-    );
+    background-image: url("./src/assets/background-2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
     font-family: "Share Tech Mono", monospace;
-    /* font-size: 1.2rem; */
 
     background-position: center;
     background-attachment: fixed;
 
     color: var(--color-text-primary);
+}
+
+.pixel-glow {
+    border: 4px solid transparent;
+    box-shadow: 0 0 0 1px var(--color-accent-blue), 0 0 5px var(--color-glow);
+    backdrop-filter: blur(5px);
 }

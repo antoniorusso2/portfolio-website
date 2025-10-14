@@ -28,7 +28,7 @@ export default function AutoplayCarousel() {
 
     return (
         technologies?.length > 0 && (
-            <div className="carousel_wrapper overflow-hidden w-full bg-[var(--secondary-color)] rounded-lg border-double border-8 border-[var(--red-dark)]">
+            <div className="carousel_wrapper overflow-hidden w-full">
                 <div className="carousel">
                     {[...technologies, ...technologies].map(
                         (technology, idx) => (

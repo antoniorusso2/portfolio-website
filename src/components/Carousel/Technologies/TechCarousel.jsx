@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import "./techcarousel.css";
 import axios from "axios";
 
-export default function AutoplayCarousel() {
+export default function TechCarousel() {
     const [technologies, setTechnologies] = useState([]);
 
     async function fetchTechnologies() {
         try {
             const response = await axios.get(
-                import.meta.env.VITE_API_BASE_URL + "technologies",
+                import.meta.env.VITE_API_BASE_URL + "/technologies",
                 {
                     headers: {
                         "Content-Type": "application/json",

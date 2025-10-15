@@ -9,3 +9,14 @@ const api = axios.create({
 });
 
 export default api;
+
+export const fetchService = {
+    getProjects: async (limit = 3, page = 1) => {
+        const { data } = await api.get(`/projects?limit=${limit}&page=${page}`);
+        return await data.results;
+    },
+    getTechnologies: async () => {
+        const { data } = await api.get("/technologies");
+        return data;
+    },
+};

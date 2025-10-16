@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DefaultLayout from "./layout/DefaultLayout";
 import NotFound from "./layout/NotFound/NotFound";
-import MainPAge from "./pages/MainPage";
+import MainPage from "./pages/MainPage";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
@@ -15,7 +15,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route element={<DefaultLayout />}>
-                        <Route index path="/" element={<MainPAge />} />
+                        <Route index path="/" element={<MainPage />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/projects" element={<Projects />} />
                         <Route

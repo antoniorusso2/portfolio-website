@@ -2,9 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchService } from "../services/api";
 
 export const useProjects = (limit = 3, page = 1) => {
-    console.log(`🪝 useProjects called with page=${page}, limit=${limit}`);
     return useQuery({
-        queryKey: ["projects", page, limit],
+        queryKey: ["projects", { limit, page }],
         queryFn: () => {
             return fetchService.getProjects(limit, page);
         },
@@ -18,5 +17,13 @@ export const useTechnologies = () => {
     return useQuery({
         queryKey: ["technologies"],
         queryFn: () => fetchService.getTechnologies(),
+    });
+};
+
+export const useProjectDetail = (slug = "") => {
+    return useQuery({
+        queryKey: ["projectDetail", slug],
+        queryFn: () => fetchService.getProjectDetail(slug),
+        enabled: !!slug,
     });
 };

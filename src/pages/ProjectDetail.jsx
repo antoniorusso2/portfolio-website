@@ -1,36 +1,17 @@
-import axios from "axios";
-import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import LoaderContext from "../contexts/LoaderContext";
 import TechBadge from "../components/ui/TechBadge";
 import MediaCarousel from "../components/Carousel/Media/MediaCarousel";
+import { useProjectDetail } from "../hooks/useData";
+import Loader from "../components/ui/Loader";
 
 export default function ProjectDetail() {
-    const slug = useParams().slug;
+    const { slug } = useParams();
 
-    const [project, setProject] = useState({});
-    const { setIsLoading } = useContext(LoaderContext);
+    const { data: project, isLoading, isError, error } = useProjectDetail(slug);
 
-    const fetchProject = async () => {
-        try {
-            setIsLoading(true);
-            await axios
-                .get(import.meta.env.VITE_API_BASE_URL + "projects/" + slug)
-                .then((res) => {
-                    console.log(res.data);
-                    setProject(res.data.results);
-                });
-        } catch (error) {
-            setProject({});
-            return console.error(error);
-        } finally {
-            setIsLoading(false);
-        }
-    };
-
-    useEffect(() => {
-        fetchProject();
-    }, []);
+    if (isLoading) return <Loader />;
+    if (error) return <p>{error.message}</p>;
+    if (isError) return <p>Errore nel caricamento della risorsa</p>;
 
     if (!project) {
         return (
@@ -42,12 +23,12 @@ export default function ProjectDetail() {
     }
 
     return (
-        <div className="container mx-auto px-4">
+        <div className="container">
             {project.media && <MediaCarousel mediaList={project.media} />}
             {/* Carousel */}
 
             {/* Titolo e Cliente */}
-            <h1 className=" md:text-2xl font-bold text-[var(--text-color)] capitalize">
+            <h1 className=" md:text-2xl font-bold text-[var(--color-text-primary)] capitalize">
                 {project.name}
             </h1>
             {project.client && (

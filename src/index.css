@@ -41,7 +41,7 @@ main {
 }
 
 body {
-    background-image: url("./src/assets/background-2.png");
+    background-image: url("/public/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     font-family: "Share Tech Mono", monospace;

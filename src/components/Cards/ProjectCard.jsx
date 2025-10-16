@@ -2,17 +2,20 @@ import TechBadge from "../ui/TechBadge";
 
 /* eslint-disable react/prop-types */
 export default function ProjectCard({ project }) {
-    const imgUrl = project.media[0]?.url
-        ? import.meta.env.VITE_API_STORAGE_URL + `${project.media[0]?.url}`
-        : "placeholder-600-400.png";
+    const baseUrl = import.meta.env.VITE_API_STORAGE_URL;
+    const hasMedia = Array.isArray(project.media) && project.media.length > 0;
+    const imgUrl = hasMedia
+        ? `${baseUrl}${project.media[0].url}`
+        : "/placeholder-600-400.png";
 
     return (
         <div className="project-card w-full h-96 bg-(--color-bg-medium)/70 shadow-(--card-shadow) border-(--color-text-primary) p-4 flex flex-col">
-            <div className="card__header overflow-hidden">
+            <div className="card__header overflow-hidden w-full">
                 <img
-                    src={imgUrl}
+                    className="w-full object-cover object-center"
                     onError={(e) => (e.target.src = "placeholder-600-400.png")}
                     alt={project.name}
+                    src={imgUrl}
                 />
             </div>
             <a

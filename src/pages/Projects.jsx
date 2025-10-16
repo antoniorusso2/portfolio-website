@@ -6,27 +6,25 @@ import { useProjects } from "../hooks/useData";
 
 export default function Projects() {
     const [currentPage, setCurrentPage] = useState(1);
-    const limit = 2;
+    const limit = 4;
 
-    const {
-        data: result,
-        isLoading,
-        error,
-        isFetching,
-    } = useProjects(limit, currentPage);
+    const { data, isLoading, isError, isFetching } = useProjects(
+        limit,
+        currentPage
+    );
 
     if (isLoading) {
         return <Loader />;
     }
 
-    if (error) {
-        return <p>{error.message}</p>;
+    if (isError) {
+        return <p>{isError.message}</p>;
     }
 
-    const projects = result.data;
+    const projects = data.projects;
 
     const pages = Array.from(
-        { length: result.last_page },
+        { length: data.totalPages },
         (_, index) => index + 1
     );
 

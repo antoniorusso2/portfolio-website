@@ -34,8 +34,8 @@ export default function Projects() {
 
     return (
         <>
-            <div className="container flex flex-col justify-content-between h-full">
-                {isFetching && <p>updating...</p>}
+            <div className="container flex flex-col justify-content-between h-full mb-5">
+                {isFetching && <Loader />}
                 <div className="grid grid-cols-1 sm:grid-cols-2 justify-content-around gap-3">
                     {projects &&
                         projects.map((project) => (

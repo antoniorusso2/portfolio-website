@@ -44,51 +44,47 @@ export default function MediaCarousel({ mediaList = [] }) {
         currentMediaUrl = "/placeholder-600-400.png";
     }
 
-    console.log(currentMediaUrl);
-
     return (
-        mediaList.length > 0 && (
-            <div className="project_carousel relative w-full mb-6 overflow-hidden">
-                <div className="relative px-14 overflow-hidden shadow-">
-                    {mediaList[currentIndex].type === "image" ? (
-                        <img
-                            src={currentMediaUrl}
-                            className="w-full object-cover object-center rounded cursor-pointer h-96"
-                            alt="Immagine del progetto"
-                            onClick={() => openModal(currentMediaUrl)}
-                        />
-                    ) : (
-                        <video
-                            controls
-                            src={`http://192.168.1.79:8000/storage/${mediaList[currentIndex].url}`}
-                            className="w-full h-[400px] object-cover rounded"
-                        />
-                    )}
-                </div>
-
-                {/* Prev/Next Controls */}
-                {mediaList.length > 1 && (
-                    <>
-                        <button
-                            className="absolute top-1/2 left-0 transform -translate-y-1/2 px-3 py-2 bg-[var(--color-accent-blue)] rounded opacity-70 hover:opacity-100 text-white cursor-pointer transition-all"
-                            onClick={showPrev}
-                        >
-                            <ArrowLeft />
-                        </button>
-                        <button
-                            className="absolute top-1/2 right-0 transform -translate-y-1/2 px-3 py-2 bg-[var(--color-accent-blue)] rounded opacity-70 hover:opacity-100 text-white cursor-pointer transition-all"
-                            onClick={showNext}
-                        >
-                            <ArrowRight />
-                        </button>
-                    </>
+        <div className="project_carousel relative w-full mb-6">
+            <div className="relative overflow-hidden rounded-lg flex items-center justify-center bg-[var(--color-bg-medium)]/50">
+                {mediaList[currentIndex].type === "image" ? (
+                    <img
+                        src={currentMediaUrl}
+                        className="w-full aspect-square md:aspect-auto max-h-[500px] object-cover object-center cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
+                        alt="Immagine del progetto"
+                        onClick={() => openModal(currentMediaUrl)}
+                    />
+                ) : (
+                    <video
+                        controls
+                        src={currentMediaUrl}
+                        className="w-full max-h-[500px] object-cover rounded"
+                    />
                 )}
 
-                {/* modale immagine ingrandita */}
-                {modalOpen && (
-                    <ImageModal src={modalSrc} onClose={closeModal} />
+                {/* Controlli prev/next sovrapposti */}
+                {mediaList.length > 1 && (
+                    <div className="absolute inset-0 flex items-center justify-between px-2 md:px-6 pointer-events-none">
+                        <button
+                            className="pointer-events-auto bg-[var(--color-bg-dark)]/60 hover:bg-[var(--color-accent-blue)]/70 text-[var(--color-text-primary)] p-2 md:p-3 rounded-full transition-all"
+                            onClick={showPrev}
+                            aria-label="Immagine precedente"
+                        >
+                            <ArrowLeft size={24} />
+                        </button>
+                        <button
+                            className="pointer-events-auto bg-[var(--color-bg-dark)]/60 hover:bg-[var(--color-accent-blue)]/70 text-[var(--color-text-primary)] p-2 md:p-3 rounded-full transition-all"
+                            onClick={showNext}
+                            aria-label="Immagine successiva"
+                        >
+                            <ArrowRight size={24} />
+                        </button>
+                    </div>
                 )}
             </div>
-        )
+
+            {/* Modal per ingrandimento */}
+            {modalOpen && <ImageModal src={modalSrc} onClose={closeModal} />}
+        </div>
     );
 }

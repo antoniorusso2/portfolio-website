@@ -1,10 +1,10 @@
-import TechCarousel from "../components/Carousel/Technologies/TechCarousel";
 import SkillSet from "../components/SkillSet/SkillSet";
+import About from "../components/About";
 
 export default function MainPAge() {
     return (
         <>
-            <section className="main-content grow flex flex-col items-center justify-content-between h-full">
+            <section className="main-content">
                 <div className="container">
                     {/* hero section */}
                     <div className="main_content pixel-glow bg-[var(--color-bg-medium)]/70 shadow-[0_0_10px var(--color-accent-neon)] ">
@@ -16,12 +16,18 @@ export default function MainPAge() {
                             <p className="description text-[var(--color-text-secondary)] md:text-2xl">
                                 Web Developer
                             </p>
-
-                            <TechCarousel />
                         </div>
                     </div>
                 </div>
+            </section>
 
+            <section className="about">
+                <div className="container">
+                    <About />
+                </div>
+            </section>
+
+            <section className="skill-set">
                 <div className="container">
                     <SkillSet />
                 </div>

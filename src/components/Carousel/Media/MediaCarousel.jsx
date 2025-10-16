@@ -10,21 +10,6 @@ export default function MediaCarousel({ mediaList = [] }) {
     const [modalOpen, setModalOpen] = useState(false);
     const [modalSrc, setModalSrc] = useState("");
 
-    // if (mediaList.length === 0) {
-    //   return (
-    //     <div className="relative w-full mb-6">
-    //       <div className="relative overflow-hidden rounded shadow">
-    //         <img
-    //           src="placeholder-600-400.png"
-    //           className="w-full object-cover object-top rounded cursor-pointer"
-    //           alt=""
-    //           onError={(e) => (e.target.src = "placeholder-600-400.png")}
-    //         />
-    //       </div>
-    //     </div>
-    //   );
-    // }
-
     const openModal = (src) => {
         setModalSrc(src);
         setModalOpen(true);
@@ -48,18 +33,28 @@ export default function MediaCarousel({ mediaList = [] }) {
     };
 
     const currentMedia = mediaList[currentIndex];
-    const currentMediaUrl =
+    let currentMediaUrl =
         import.meta.env.VITE_API_STORAGE_URL + currentMedia.url;
+
+    if (
+        mediaList.length === 0 ||
+        !mediaList ||
+        currentMedia.url.startsWith("http")
+    ) {
+        currentMediaUrl = "/placeholder-600-400.png";
+    }
+
+    console.log(currentMediaUrl);
 
     return (
         mediaList.length > 0 && (
-            <div className="relative w-full mb-6 overflow-hidden">
-                <div className="relative overflow-hidden rounded shadow">
+            <div className="project_carousel relative w-full mb-6 overflow-hidden">
+                <div className="relative px-14 overflow-hidden shadow-">
                     {mediaList[currentIndex].type === "image" ? (
                         <img
                             src={currentMediaUrl}
                             className="w-full object-cover object-center rounded cursor-pointer h-96"
-                            alt=""
+                            alt="Immagine del progetto"
                             onClick={() => openModal(currentMediaUrl)}
                         />
                     ) : (
@@ -75,13 +70,13 @@ export default function MediaCarousel({ mediaList = [] }) {
                 {mediaList.length > 1 && (
                     <>
                         <button
-                            className="absolute top-1/2 left-0 transform -translate-y-1/2 px-3 py-2 bg-[var(--red-dark)] rounded-sm opacity-70 hover:opacity-100 text-white cursor-pointer transition-all"
+                            className="absolute top-1/2 left-0 transform -translate-y-1/2 px-3 py-2 bg-[var(--color-accent-blue)] rounded opacity-70 hover:opacity-100 text-white cursor-pointer transition-all"
                             onClick={showPrev}
                         >
                             <ArrowLeft />
                         </button>
                         <button
-                            className="absolute top-1/2 right-0 transform -translate-y-1/2 px-3 py-2 bg-[var(--red-dark)] rounded-sm opacity-70 hover:opacity-100 text-white cursor-pointer transition-all"
+                            className="absolute top-1/2 right-0 transform -translate-y-1/2 px-3 py-2 bg-[var(--color-accent-blue)] rounded opacity-70 hover:opacity-100 text-white cursor-pointer transition-all"
                             onClick={showNext}
                         >
                             <ArrowRight />

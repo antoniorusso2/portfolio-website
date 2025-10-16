@@ -6,7 +6,7 @@ export default function defaultLayout() {
     return (
         <>
             <Header />
-            <main className="main content flex-grow-1 ">
+            <main className="main content flex-grow-1">
                 <Outlet />
             </main>
             <Footer />

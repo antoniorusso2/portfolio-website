@@ -1,6 +1,6 @@
 export default function About() {
     return (
-        <div className="bio mx-auto my-3 p-6 bg-(--color-bg-medium)/60 border border-(--color-accent-secondary) shadow-(--card-shadow) text-center">
+        <div className="bio mx-auto  p-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Chi Sono</h2>
             <p className="text-lg md:text-xl leading-relaxed">
                 Sono uno sviluppatore web appassionato e determinato, sempre

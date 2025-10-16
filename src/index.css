@@ -56,9 +56,3 @@ body {
 
     color: var(--color-text-primary);
 }
-
-.pixel-glow {
-    border: 4px solid transparent;
-    box-shadow: 0 0 0 1px var(--color-accent-blue), 0 0 5px var(--color-glow);
-    backdrop-filter: blur(5px);
-}

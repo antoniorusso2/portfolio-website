@@ -1,5 +1,6 @@
 /* tech and sliders font */
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -15,12 +16,12 @@
     --color-text-secondary: #b8b8d0;
     --color-nav-bg: rgba(14, 15, 26, 0.85);
     --color-glow: #f72585;
-    --card-shadow: 0 0 0.5rem 1px var(--color-accent-blue);
+    --card-shadow: 0 0 8px 1px var(--color-glow);
 }
 
 /* react root */
 #root {
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
 }
@@ -33,7 +34,7 @@ h1,
 h2,
 h3,
 nav {
-    font-family: "Press Start 2P", monospace;
+    font-family: "Orbitron", sans-serif;
 }
 
 main {
@@ -41,13 +42,17 @@ main {
 }
 
 body {
-    background-image: url("/public/background.jpg");
+    /* background-image: url("/background.jpg"); */
+    background-image: linear-gradient(
+        var(--color-bg-dark) 80%,
+        var(--color-bg-medium)
+    );
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: "Share Tech Mono", monospace;
-
     background-position: center;
     background-attachment: fixed;
+
+    font-family: "Roboto Mono", monospace;
 
     color: var(--color-text-primary);
 }

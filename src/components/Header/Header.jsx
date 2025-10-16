@@ -5,11 +5,15 @@ import { useState } from "react";
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <header className="header backdrop-blur-lg">
-            <div className="container mx-auto px-4 ">
+        <header
+            className={`header ${
+                isOpen ? "bg-(--color-bg-medium)" : ""
+            } transition-all duration-300 ease-in-out`}
+        >
+            <div className="container mx-auto px-4 text-xl md:text-2xl ">
                 <nav className="flex items-center justify-between py-6 w-full z-50">
                     {/* Logo a sinistra */}
-                    <a href="/" className="text-xl font-bold">
+                    <a href="/" className="font-bold">
                         <span className="logo">&gt;_ntnrss</span>
                     </a>
 
@@ -52,7 +56,7 @@ export default function Header() {
 
                 {/* Menu mobile (tendina sotto il nav) */}
                 {isOpen && (
-                    <ul className="md:hidden flex flex-col gap-4 mt-2 pb-5">
+                    <ul className="md:hidden flex flex-col gap-4 mt-2 pb-5 transition-all duration-1000 ease-in-out">
                         <li>
                             <NavLink
                                 to="/"

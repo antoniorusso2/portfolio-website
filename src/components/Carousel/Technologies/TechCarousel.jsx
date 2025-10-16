@@ -32,7 +32,10 @@ export default function TechCarousel() {
                 <div className="carousel">
                     {[...technologies, ...technologies].map(
                         (technology, idx) => (
-                            <div key={idx} className="carousel-item">
+                            <div
+                                key={idx}
+                                className="carousel-item hover:drop-shadow-[0_0_8px_var(--color-glow)] transition-shadow duration-300"
+                            >
                                 <img
                                     src={technology.icon_external_url}
                                     alt="tech-icon"
@@ -42,7 +45,10 @@ export default function TechCarousel() {
                     )}
                     {[...technologies, ...technologies].map(
                         (technology, idx) => (
-                            <div key={idx} className="carousel-item">
+                            <div
+                                key={idx}
+                                className="carousel-item hover:drop-shadow-[0_0_8px_var(--color-glow)] transition-shadow duration-300"
+                            >
                                 <img
                                     src={technology.icon_external_url}
                                     alt="tech-icon"

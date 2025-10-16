@@ -2,7 +2,6 @@
 
 .navbar {
     background-color: var(--color-bg-dark) 0.5;
-    backdrop-filter: blur(10px);
 }
 
 .nav_link {
@@ -10,27 +9,26 @@
     display: flex !important;
     align-items: center;
     filter: opacity(0.6);
-    color: var(--color-text-primary);
+    color: var(--color-text-secondary);
     text-align: left;
     position: relative;
     transition: all 0.3s ease-in-out;
 }
 
 .active {
-    opacity: 1 !important;
-    color: var(--color-accent-violet) !important;
+    color: var(--color-accent-magenta) !important;
     filter: opacity(1);
 }
 
 .nav_link:hover {
-    color: var(--color-accent-blue);
+    color: var(--color-accent-violet);
     filter: opacity(1);
 }
 
 .active::before {
     content: "";
 
-    background-image: url("../../assets/22-22-play-retro.png");
+    background-image: url("/22-22-play-retro.png");
     filter: drop-shadow(1px 1px 1px var(--color-glow));
 
     background-clip: content-box;

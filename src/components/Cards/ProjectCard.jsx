@@ -9,26 +9,37 @@ export default function ProjectCard({ project }) {
         : "/placeholder-600-400.png";
 
     return (
-        <div className="project-card w-full h-96 bg-(--color-bg-medium)/70 shadow-(--card-shadow) border-(--color-text-primary) p-4 flex flex-col">
-            <div className="card__header overflow-hidden w-full">
+        <div className="project-card w-full max-h-96 bg-(--color-bg-medium) shadow-lg border border-(--color-text-primary) rounded overflow-hidden flex flex-col">
+            {/* Image header */}
+            <div className="card__header w-full md:max-h-96 overflow-hidden">
                 <img
-                    className="w-full object-cover object-center"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 ease-in-out hover:scale-110 cursor-pointer"
                     onError={(e) => (e.target.src = "placeholder-600-400.png")}
                     alt={project.name}
                     src={imgUrl}
                 />
             </div>
-            <a
-                className="project__link text-emerald-500 md:text-2xl underline underline-offset-4 my-3"
-                href={`/projects/${project.slug}`}
-            >
-                {project.name}
-            </a>
 
-            <div className="tech-badges flex gap-1 flex-wrap mt-auto">
-                {project.technologies.map((technology) => (
-                    <TechBadge key={technology.id} technology={technology} />
-                ))}
+            {/* Body */}
+            <div className="card__body flex flex-col justify-between flex-1 p-4">
+                {/* Project link */}
+                <a
+                    className="project__link text-xl md:text-2xl font-bold underline underline-offset-4 hover:text-(--color-accent-violet) transition-colors duration-300 ease-in-out mb-3 capitalize"
+                    href={`/projects/${project.slug}`}
+                >
+                    {project.name}
+                </a>
+
+                {/* Technologies */}
+                <div className="tech_badges flex flex-wrap gap-2 mt-auto">
+                    {project.technologies.map((technology) => (
+                        <TechBadge
+                            key={technology.id}
+                            technology={technology}
+                            className=""
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     );

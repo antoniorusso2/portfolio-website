@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <>
-            <footer className="footer py-4 backdrop-blur-sm">
+            <footer className="footer py-4">
                 <div className="container">
                     <div className="row flex justify-between border-b-2 border-b-cyan-800 py-4">
                         <ul className="contacts-list">

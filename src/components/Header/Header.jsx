@@ -54,7 +54,6 @@ export default function Header() {
                     </ul>
                 </nav>
 
-                {/* Menu mobile (tendina sotto il nav) */}
                 {isOpen && (
                     <ul className="md:hidden flex flex-col gap-4 mt-2 pb-5 transition-all duration-1000 ease-in-out">
                         <li>
